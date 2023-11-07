@@ -1,0 +1,24 @@
+contents:
+  repositories:
+    - https://packages.wolfi.dev/os
+  keyring:
+    - https://packages.wolfi.dev/os/wolfi-signing.rsa.pub
+  packages:
+    - wolfi-baselayout
+    - nginx
+
+entrypoint:
+  command: /usr/sbin/nginx -c /etc/nginx/nginx.conf -g 'daemon off;'
+
+work-dir: /usr/share/nginx
+
+accounts:
+  groups:
+    - groupname: nginx
+      gid: 65532
+  users:
+    - username: nginx
+      uid: 65532
+      gid: 65532
+archs:
+  - amd64
