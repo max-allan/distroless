@@ -8,7 +8,7 @@ docker run -v "$PWD":/work -w /work cgr.dev/chainguard/apko build git-wolfi.yaml
 
 The yaml file is based on https://github.com/chainguard-images/images/blob/main/images/git/configs/latest.wolfi.nonroot.apko.yaml
 
-With some add-ons they normally provide with their Makefile, here : https://github.com/chainguard-images/images/blob/ed6e076f1c56444289dcab461e9e848923153630/Makefile#L6
+With some add-ons (which Chainguard provide with their Makefile, here : https://github.com/chainguard-images/images/blob/ed6e076f1c56444289dcab461e9e848923153630/Makefile#L6 )
 
 It creates a slightly larger image but still manages to have ZERO vulnerabilities.
 

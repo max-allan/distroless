@@ -1,8 +1,8 @@
-Apko installs "apk" packages onto an alpine image with minimal extras.
+Apko installs "apk" packages onto an image froma config file.
 
 The config files are declarative and don't support "RUN" statements, which likely makes this a "hard sell" for most software development.
 
-But go read their website and see melange and other stuff you could do.
+But go read their website and see `melange` and other stuff you could do.
 
 https://github.com/chainguard-dev/apko
 
@@ -37,14 +37,14 @@ archs:
   - amd64
 ```
 
-There is a git.yaml for you in this directory.
+(There is a git.yaml for you in this directory.)
 
 And build the image :
 ```
 docker run -v "$PWD":/work -w /work cgr.dev/chainguard/apko build git.yaml apko-git:test apko-git.tar
 ```
 
-You'll see you get a tar file you can load into docker with
+You'll see you get a tar file, you can load it into docker with:
 ```
 docker load -i apk-git.tar
 ```
@@ -93,7 +93,7 @@ Total: 68 (UNKNOWN: 0, LOW: 22, MEDIUM: 46, HIGH: 0, CRITICAL: 0)
 
 And now the Alpine image :
 ```
-docker run -v "`pwd`/../03 nginx/trivycache":/root/.cache/  -v /var/run/docker.sock:/var/run/docker.sock aquasec/trivy image apko-git:test-amd64
+docker run -v "../trivycache":/root/.cache/  -v /var/run/docker.sock:/var/run/docker.sock aquasec/trivy image apko-git:test-amd64
 2023-11-07T17:59:41.756Z        INFO    Vulnerability scanning is enabled
 2023-11-07T17:59:41.756Z        INFO    Secret scanning is enabled
 2023-11-07T17:59:41.756Z        INFO    If your scanning is slow, please try '--scanners vuln' to disable secret scanning
@@ -118,4 +118,4 @@ docker run --entrypoint sh -it cgr.dev/chainguard/git
 ~ $ 
 ```
 
-
+This image is very similar to what we just built.
